@@ -8,21 +8,29 @@ import About from "./pages/About";
 import ContactUs from "./components/ContactUs";
 import MainLayout from "./layouts/MainLayout";
 import NotFound from "./pages/NotFound";
+import DashboardLayout from "./layouts/DashboardLayout";
+import Dashboard from "./pages/Dashboard";
 
 
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<MainLayout/>}> 
-      <Route index element={<LandingPage />}/>
-      <Route path='/login' element={<LoginPage />} />
-      <Route path='/register' element={<SignUp />} />
-      <Route path='/features' element={<Features />} />
-      <Route path='/services' element={<Service />} />
-      <Route path='/about' element={<About />} />
-      <Route path='/contact-us' element={<ContactUs />} />
-      <Route path="/*" element={<NotFound />} />
-    </Route>
+    <>
+      <Route path="/" element={<MainLayout/>}> 
+        <Route index element={<LandingPage />}/>
+        <Route path='/login' element={<LoginPage />} />
+        <Route path='/register' element={<SignUp />} />
+        <Route path='/features' element={<Features />} />
+        <Route path='/services' element={<Service />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/contact-us' element={<ContactUs />} />
+        <Route path="/*" element={<NotFound />} />
+      </Route>
+
+        <Route path="/dashboard" element={<DashboardLayout />}>
+          <Route index element={<Dashboard />} />
+        </Route>
+    </>
   )
 );
 
